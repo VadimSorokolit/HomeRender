@@ -13,41 +13,32 @@ import SwiftUI
 
 struct ToolsView: View {
     @Environment(ToolsViewModel.self) private var viewModel
-    @State private var path: [AppRoute] = []
-    
+    @State private var selectedCard: ToolCard?
+
     var body: some View {
-        NavigationStack(path: $path) {
-            ZStack {
-                GlobalConstants.bgColor
-                    .ignoresSafeArea()
-                
-            }
-            .safeAreaInset(edge: .top) {
-                VStack(spacing: 0) {
-                    HeaderView()
-                    
-                    ContentView { route in
-                        path.append(route)
-                    }
-                }
-                .padding(.horizontal)
-            }
+        ZStack {
+            GlobalConstants.bgColor
+                .ignoresSafeArea()
         }
-        .navigationDestination(for: AppRoute.self) { route in
-            switch route {
-                case .sketchToRender(let card):
-                    SketchToRenderView(card: card)
+        .safeAreaInset(edge: .top) {
+            VStack(spacing: 0) {
+                HeaderView()
+
+                ContentView { card in
+                    selectedCard = card
+                }
             }
+            .padding(.horizontal)
+        }
+        .fullScreenCover(item: $selectedCard) { card in
+            SketchToRenderView(card: card)
         }
         .task {
-            guard viewModel.cards.isEmpty else {
-                return
-            }
-            
+            guard viewModel.cards.isEmpty else { return }
             viewModel.loadCards()
         }
     }
-    
+
     private struct HeaderView: View {
         let cornerRadius: CGFloat = 96
         let width: CGFloat = 94
@@ -98,7 +89,7 @@ struct ToolsView: View {
     private struct ContentView: View {
         @Environment(ToolsViewModel.self) private var viewModel
         
-        let onNavigate: (AppRoute) -> Void
+        let onNavigate: (ToolCard) -> Void
         
         var body: some View {
             if viewModel.cards.isEmpty, viewModel.isLoading == false {
@@ -113,10 +104,10 @@ struct ToolsView: View {
                             ToolCell(
                                 card: card,
                                 onRightImageTap: {
-                                    onNavigate(.sketchToRender(card))
+                                    onNavigate(card)
                                 },
                                 onButtonTap: {
-                                    onNavigate(.sketchToRender(card))
+                                    onNavigate(card)
                                 }
                             )
                         }

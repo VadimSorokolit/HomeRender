@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SketchToRenderView: View {
+    @Environment(\.dismiss) private var dismiss
     let card: ToolCard?
     
     var body: some View {
@@ -17,11 +18,30 @@ struct SketchToRenderView: View {
             
         }
         .safeAreaInset(edge: .top) {
-            ContentView(card: card)
+            VStack(spacing: 0) {
+                ZStack(alignment: .topLeading) {
+                    Rectangle()
+                        .fill(GlobalConstants.bgColor)
+                    
+                    Button(action: {
+                        dismiss()
+                    }, label: {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 20, weight: .semibold))
+                            .foregroundStyle(.black)
+                            .frame(width: 44, height: 44, alignment: .leading)
+                    })
+                    .padding(.leading)
+                }
+                .frame(height: 48)
+                
+                ContentView(card: card)
+            }
         }
         .safeAreaInset(edge: .bottom) {
             BottomView()
         }
+        .toolbar(.hidden, for: .tabBar)
     }
     
     private struct ContentView: View {
@@ -29,15 +49,7 @@ struct SketchToRenderView: View {
         
         var body: some View {
             ScrollView(showsIndicators: false) {
-                VStack(spacing: 0) {
-                    Rectangle()
-                        .fill(GlobalConstants.bgColor)
-                        .frame(height: 48)
-                    
-                    CarouselView(card: card)
-                }
-                .frame(maxWidth: .infinity)
-                .frame(height: 582)
+                CarouselView(card: card)
             }
             .padding(.horizontal)
         }
@@ -45,12 +57,33 @@ struct SketchToRenderView: View {
         private struct CarouselView: View {
             let card: ToolCard?
             
+            let imageHeight: CGFloat = 436
+            
             var body: some View {
                 VStack(spacing: 0) {
-                    HStack {
-                        
+                    if let card {
+                        GeometryReader { proxy in
+                            HStack(spacing: 0) {
+                                Image(card.beforeImage)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: proxy.size.width / 2 - 2, height: imageHeight)
+                                    .clipped()
+                                
+                                Rectangle()
+                                    .fill(.white)
+                                    .frame(width: 4)
+                                
+                                Image(card.afterImage)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: proxy.size.width / 2 - 2, height: imageHeight)
+                                    .clipped()
+                            }
+                            .clipShape(RoundedRectangle(cornerRadius: 24))
+                        }
+                        .frame(height: imageHeight)
                     }
-                    .frame(height: 436)
                     
                     Rectangle()
                         .fill(GlobalConstants.bgColor)
