@@ -5,28 +5,39 @@
 //  Created by Vadim Sorokolit on 18.06.2026.
 //
 
+enum AppRoute: Hashable {
+    case sketchToRender(ToolCard)
+}
+
 import SwiftUI
 
 struct ToolsView: View {
     @Environment(ToolsViewModel.self) private var viewModel
-    
-    private enum Constants {
-        static let bgColor = Color(hex: 0xF3F2F1)
-    }
+    @State private var path: [AppRoute] = []
     
     var body: some View {
-        ZStack {
-            Constants.bgColor
-                .ignoresSafeArea()
-            
-        }
-        .safeAreaInset(edge: .top) {
-            VStack(spacing: 0) {
-                HeaderView()
+        NavigationStack(path: $path) {
+            ZStack {
+                GlobalConstants.bgColor
+                    .ignoresSafeArea()
                 
-                ContentView()
             }
-            .padding(.horizontal)
+            .safeAreaInset(edge: .top) {
+                VStack(spacing: 0) {
+                    HeaderView()
+                    
+                    ContentView { route in
+                        path.append(route)
+                    }
+                }
+                .padding(.horizontal)
+            }
+        }
+        .navigationDestination(for: AppRoute.self) { route in
+            switch route {
+                case .sketchToRender(let card):
+                    SketchToRenderView(card: card)
+            }
         }
         .task {
             guard viewModel.cards.isEmpty else {
@@ -80,12 +91,14 @@ struct ToolsView: View {
             }
             .padding(.vertical, 6)
             .frame(maxWidth: .infinity)
-            .background(Constants.bgColor)
+            .background(GlobalConstants.bgColor)
         }
     }
     
     private struct ContentView: View {
         @Environment(ToolsViewModel.self) private var viewModel
+        
+        let onNavigate: (AppRoute) -> Void
         
         var body: some View {
             if viewModel.cards.isEmpty, viewModel.isLoading == false {
@@ -100,10 +113,10 @@ struct ToolsView: View {
                             ToolCell(
                                 card: card,
                                 onRightImageTap: {
-                                    print("Right image tapped")
+                                    onNavigate(.sketchToRender(card))
                                 },
                                 onButtonTap: {
-                                    print("Button tapped")
+                                    onNavigate(.sketchToRender(card))
                                 }
                             )
                         }

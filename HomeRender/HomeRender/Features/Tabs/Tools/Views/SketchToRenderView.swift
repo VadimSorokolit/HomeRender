@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SketchToRenderView: View {
+    let card: ToolCard?
     
     var body: some View {
         Text("Hello, world!")

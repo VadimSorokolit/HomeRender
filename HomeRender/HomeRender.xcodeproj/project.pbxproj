@@ -10,6 +10,7 @@
 		5B3DFCE62FE41CFE00447169 /* Interiors.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B6FBB302FE4059400B0F3E1 /* Interiors.json */; };
 		5B3DFCE92FE420C400447169 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3DFCE82FE420C400447169 /* SpinnerView.swift */; };
 		5B3DFCEC2FE425D100447169 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3DFCEB2FE425D000447169 /* CustomTabBar.swift */; };
+		5B3DFCEE2FE4359200447169 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3DFCED2FE4359100447169 /* GlobalConstants.swift */; };
 		5B6FBB3C2FE40B5B00B0F3E1 /* ToolsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FBB3B2FE40B5A00B0F3E1 /* ToolsViewModel.swift */; };
 		5B6FBB3F2FE410A100B0F3E1 /* View+frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FBB3E2FE410A000B0F3E1 /* View+frame.swift */; };
 		5B6FBB412FE4117A00B0F3E1 /* ToolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FBB402FE4117900B0F3E1 /* ToolCell.swift */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		5B3DFCE82FE420C400447169 /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 		5B3DFCEB2FE425D000447169 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		5B3DFCED2FE4359100447169 /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		5B6FBB302FE4059400B0F3E1 /* Interiors.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Interiors.json; sourceTree = "<group>"; };
 		5B6FBB3B2FE40B5A00B0F3E1 /* ToolsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsViewModel.swift; sourceTree = "<group>"; };
 		5B6FBB3E2FE410A000B0F3E1 /* View+frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+frame.swift"; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 		5B7E1DCF2FE3D14100561D67 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				5B3DFCED2FE4359100447169 /* GlobalConstants.swift */,
 				5B3DFCE72FE4209A00447169 /* UI */,
 				5B7E1DD02FE3D15100561D67 /* Extensions */,
 			);
@@ -305,6 +308,7 @@
 				5B7E1DDD2FE3D2AE00561D67 /* ShapeStyle+gradient.swift in Sources */,
 				5B6FBB412FE4117A00B0F3E1 /* ToolCell.swift in Sources */,
 				5B6FBB3C2FE40B5B00B0F3E1 /* ToolsViewModel.swift in Sources */,
+				5B3DFCEE2FE4359200447169 /* GlobalConstants.swift in Sources */,
 				5B6FBB3F2FE410A100B0F3E1 /* View+frame.swift in Sources */,
 				5B7E1DDF2FE3D2B900561D67 /* ShapeStyle+solid.swift in Sources */,
 				5B6FBB462FE418AE00B0F3E1 /* SketchToRenderView.swift in Sources */,

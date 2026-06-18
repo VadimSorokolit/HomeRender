@@ -108,8 +108,8 @@ struct RootTabsView: View {
     }
     
     private var tabBarBackground: some View {
-        RoundedRectangle(cornerRadius: 31)
-            .fill(Color(hex: 0xF9F9F9).opacity(0.9))
+        RoundedRectangle(cornerRadius: 96)
+            .fill(Color(hex: 0xFFFFFF).opacity(0.9))
             .overlay {
                 RoundedRectangle(cornerRadius: 31)
                     .stroke(.white, lineWidth: 1)
