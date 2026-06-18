@@ -31,7 +31,7 @@ struct SketchToRenderView: View {
                             .foregroundStyle(.black)
                             .frame(width: 44, height: 44, alignment: .leading)
                     })
-                    .padding(.leading)
+                    .padding(.leading, 30)
                 }
                 .frame(height: 48)
                 
@@ -58,60 +58,48 @@ struct SketchToRenderView: View {
             let card: ToolCard?
             
             let imageHeight: CGFloat = 436
+            @State private var sliderPosition: CGFloat = 0.5
+            @GestureState private var dragTranslation: CGFloat = 0
             
             var body: some View {
                 VStack(spacing: 0) {
                     if let card {
                         GeometryReader { proxy in
-                            HStack(spacing: 0) {
-                                ZStack(alignment: .topLeading) {
-                                    Image(card.beforeImage)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: proxy.size.width / 2 - 2,
-                                               height: imageHeight
-                                        )
-                                        .clipped()
+                            let width = proxy.size.width
+                            let dividerX = width * min(max(sliderPosition + dragTranslation / width, 0), 1)
+                            
+                            ZStack(alignment: .topLeading) {
+                                Image(card.afterImage)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: width, height: imageHeight)
+                                    .clipped()
+                                
+                                Image(card.beforeImage)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: width, height: imageHeight)
+                                    .clipped()
+                                    .mask(alignment: .leading) {
+                                        Rectangle().frame(width: dividerX)
+                                    }
+                                
+                                HStack {
+                                    comparisonBadge("Before")
                                     
-                                    RoundedRectangle(cornerRadius: 96)
-                                        .fill(.white.opacity(0.8))
-                                        .frame(width: 56, height: 26)
-                                        .background(.ultraThinMaterial)
-                                        .overlay {
-                                            Text("Before")
-                                                .foregroundStyle(.black)
-                                                .font(.system(size: 14, weight: .semibold))
-                                        }
-                                        .padding(.top, 22)
-                                        .padding(.leading, 22)
+                                    Spacer()
+                                    
+                                    comparisonBadge("After")
                                 }
+                                .padding(.top, 16)
+                                .padding(.horizontal, 16)
                                 
                                 Rectangle()
                                     .fill(.white)
-                                    .frame(width: 4)
+                                    .frame(width: 4, height: imageHeight)
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                                    .offset(x: dividerX - 2)
                                 
-                                ZStack(alignment: .topTrailing) {
-                                    Image(card.afterImage)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: proxy.size.width / 2 - 2, height: imageHeight)
-                                        .clipped()
-                                    
-                                    RoundedRectangle(cornerRadius: 96)
-                                        .fill(.white.opacity(0.8))
-                                        .frame(width: 56, height: 26)
-                                        .background(.ultraThinMaterial)
-                                        .overlay {
-                                            Text("After")
-                                                .foregroundStyle(.black)
-                                                .font(.system(size: 14, weight: .semibold))
-                                        }
-                                        .padding(.top, 22)
-                                        .padding(.trailing, 22)
-                                }
-                            }
-                            .clipShape(RoundedRectangle(cornerRadius: 24))
-                            .overlay {
                                 Circle()
                                     .fill(.white)
                                     .frame(size: 44)
@@ -121,23 +109,51 @@ struct SketchToRenderView: View {
                                         x: 0,
                                         y: 4
                                     )
+                                    .overlay {
+                                        HStack(spacing: 0) {
+                                            Image(systemName: "chevron.left")
+                                                .font(.system(size: 20, weight: .regular))
+                                                .foregroundStyle(.black)
+                                            
+                                            Image(systemName: "chevron.right")
+                                                .font(.system(size: 20, weight: .regular))
+                                                .foregroundStyle(.black)
+                                        }
+                                    }
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                                    .offset(x: dividerX - 22)
+                                    .contentShape(Circle())
+                                    .gesture(
+                                        DragGesture(minimumDistance: 0)
+                                            .updating($dragTranslation) { value, state, _ in
+                                                state = value.translation.width
+                                            }
+                                            .onEnded { value in
+                                                sliderPosition = min(
+                                                    max(sliderPosition + value.translation.width / width, 0),
+                                                    1
+                                                )
+                                            }
+                                    )
                             }
-                            .overlay {
-                                HStack(spacing: 0) {
-                                    Image(systemName: "chevron.left")
-                                        .font(.system(size: 20, weight: .regular))
-                                        .foregroundColor(.black)
-                                    
-                                    Image(systemName: "chevron.right")
-                                        .font(.system(size: 20, weight: .regular))
-                                        .foregroundColor(.black)
-                                }
-                            }
+                            .clipShape(RoundedRectangle(cornerRadius: 24))
                         }
                         .frame(height: imageHeight)
                         .contentMargins(.bottom, 98)
                     }
                 }
+            }
+            
+            private func comparisonBadge(_ title: String) -> some View {
+                RoundedRectangle(cornerRadius: 96)
+                    .fill(.white.opacity(0.8))
+                    .frame(width: 56, height: 26)
+                    .background(.ultraThinMaterial)
+                    .overlay {
+                        Text(title)
+                            .foregroundStyle(.black)
+                            .font(.system(size: 14, weight: .semibold))
+                    }
             }
         }
     }
@@ -216,7 +232,7 @@ struct SketchToRenderView: View {
                                         .resizable()
                                         .scaledToFit()
                                         .foregroundStyle(.white)
-                                        .frame(size: 24)
+                                        .frame(size: 16)
                                     
                                     Text("Regenerate")
                                         .foregroundStyle(.white)

@@ -10,6 +10,7 @@ import SwiftUI
 struct DiscoverView: View {
     var body: some View {
         GlobalConstants.bgColor
+            .ignoresSafeArea()
     }
 }
 

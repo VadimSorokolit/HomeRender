@@ -52,6 +52,7 @@ struct RootTabsView: View {
             
             tabBar
         }
+        .ignoresSafeArea(.container, edges: .bottom)
         .frame(
             maxWidth: .infinity,
             maxHeight: .infinity,

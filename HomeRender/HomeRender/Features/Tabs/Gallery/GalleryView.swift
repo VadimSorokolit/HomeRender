@@ -10,6 +10,8 @@ import SwiftUI
 struct GalleryView: View {
     var body: some View {
         GlobalConstants.bgColor
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .ignoresSafeArea()
     }
 }
 
