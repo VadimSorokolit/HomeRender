@@ -111,6 +111,28 @@ struct SketchToRenderView: View {
                                 }
                             }
                             .clipShape(RoundedRectangle(cornerRadius: 24))
+                            .overlay {
+                                Circle()
+                                    .fill(.white)
+                                    .frame(size: 44)
+                                    .shadow(
+                                        color: .black.opacity(0.25),
+                                        radius: 4,
+                                        x: 0,
+                                        y: 4
+                                    )
+                            }
+                            .overlay {
+                                HStack(spacing: 0) {
+                                    Image(systemName: "chevron.left")
+                                        .font(.system(size: 20, weight: .regular))
+                                        .foregroundColor(.black)
+                                    
+                                    Image(systemName: "chevron.right")
+                                        .font(.system(size: 20, weight: .regular))
+                                        .foregroundColor(.black)
+                                }
+                            }
                         }
                         .frame(height: imageHeight)
                         .contentMargins(.bottom, 98)
