@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B6FBB312FE4059700B0F3E1 /* Interiors.json in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FBB302FE4059400B0F3E1 /* Interiors.json */; };
+		5B3DFCE62FE41CFE00447169 /* Interiors.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B6FBB302FE4059400B0F3E1 /* Interiors.json */; };
 		5B6FBB3C2FE40B5B00B0F3E1 /* ToolsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FBB3B2FE40B5A00B0F3E1 /* ToolsViewModel.swift */; };
 		5B6FBB3F2FE410A100B0F3E1 /* View+frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FBB3E2FE410A000B0F3E1 /* View+frame.swift */; };
 		5B6FBB412FE4117A00B0F3E1 /* ToolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FBB402FE4117900B0F3E1 /* ToolCell.swift */; };
@@ -260,6 +260,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B3DFCE62FE41CFE00447169 /* Interiors.json in Resources */,
 				5B7E1DCB2FE3D08C00561D67 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,7 +276,6 @@
 				5B7E1DC92FE3D08C00561D67 /* ToolsView.swift in Sources */,
 				5B6FBB482FE418F600B0F3E1 /* GalleryView.swift in Sources */,
 				5B7E1DE82FE3F1C900561D67 /* ToolCard.swift in Sources */,
-				5B6FBB312FE4059700B0F3E1 /* Interiors.json in Sources */,
 				5B7E1DD42FE3D1B300561D67 /* Color+hex.swift in Sources */,
 				5B6FBB4A2FE4194800B0F3E1 /* DiscoverView.swift in Sources */,
 				5B7E1DDD2FE3D2AE00561D67 /* ShapeStyle+gradient.swift in Sources */,
@@ -437,12 +437,16 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.HomeRender;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -470,12 +474,16 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.HomeRender;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
