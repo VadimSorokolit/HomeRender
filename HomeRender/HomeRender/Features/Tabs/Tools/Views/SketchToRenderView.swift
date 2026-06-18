@@ -17,7 +17,7 @@ struct SketchToRenderView: View {
             
         }
         .safeAreaInset(edge: .top) {
-            ContentView()
+            ContentView(card: card)
         }
         .safeAreaInset(edge: .bottom) {
             BottomView()
@@ -25,6 +25,7 @@ struct SketchToRenderView: View {
     }
     
     private struct ContentView: View {
+        let card: ToolCard?
         
         var body: some View {
             ScrollView(showsIndicators: false) {
@@ -33,7 +34,7 @@ struct SketchToRenderView: View {
                         .fill(GlobalConstants.bgColor)
                         .frame(height: 48)
                     
-                    CarouselView()
+                    CarouselView(card: card)
                 }
                 .frame(maxWidth: .infinity)
                 .frame(height: 582)
@@ -42,6 +43,7 @@ struct SketchToRenderView: View {
         }
         
         private struct CarouselView: View {
+            let card: ToolCard?
             
             var body: some View {
                 VStack(spacing: 0) {
@@ -144,6 +146,7 @@ struct SketchToRenderView: View {
                 .padding()
             }
             .frame(height: 152)
+            .padding(.vertical)
         }
     }
     
