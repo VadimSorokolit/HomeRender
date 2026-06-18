@@ -16,7 +16,51 @@ struct SketchToRenderView: View {
                 .ignoresSafeArea()
             
         }
+        .safeAreaInset(edge: .top) {
+            ContentView()
+        }
         .safeAreaInset(edge: .bottom) {
+            BottomView()
+        }
+    }
+    
+    private struct ContentView: View {
+        
+        var body: some View {
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 0) {
+                    Rectangle()
+                        .fill(GlobalConstants.bgColor)
+                        .frame(height: 48)
+                    
+                    CarouselView()
+                }
+                .frame(maxWidth: .infinity)
+                .frame(height: 582)
+            }
+            .padding(.horizontal)
+        }
+        
+        private struct CarouselView: View {
+            
+            var body: some View {
+                VStack(spacing: 0) {
+                    HStack {
+                        
+                    }
+                    .frame(height: 436)
+                    
+                    Rectangle()
+                        .fill(GlobalConstants.bgColor)
+                        .frame(height: 98)
+                }
+            }
+        }
+    }
+    
+    private struct BottomView: View {
+
+        var body: some View {
             HStack {
                 VStack(spacing: 16) {
                     HStack {
