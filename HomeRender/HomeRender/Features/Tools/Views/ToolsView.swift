@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ToolsView: View {
+    @Environment(ToolsViewModel.self) private var viewModel
     
     private enum Constants {
         static let bgColor = Color(hex: 0xF3F2F1)
@@ -17,7 +18,7 @@ struct ToolsView: View {
         ZStack {
             Constants.bgColor
                 .ignoresSafeArea()
-                
+            
         }
         .safeAreaInset(edge: .top) {
             VStack(spacing: 0) {
@@ -25,6 +26,14 @@ struct ToolsView: View {
                 
                 ContentView()
             }
+            .padding(.horizontal)
+        }
+        .task {
+            guard viewModel.cards.isEmpty else {
+                return
+            }
+            
+            viewModel.loadCards()
         }
     }
     
@@ -69,7 +78,6 @@ struct ToolsView: View {
                 })
                 
             }
-            .padding(.horizontal)
             .padding(.vertical, 6)
             .frame(maxWidth: .infinity)
             .background(Constants.bgColor)
@@ -77,15 +85,37 @@ struct ToolsView: View {
     }
     
     private struct ContentView: View {
+        @Environment(ToolsViewModel.self) private var viewModel
         
         var body: some View {
-            Text("Hello")
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Constants.bgColor)
+            if viewModel.cards.isEmpty, viewModel.isLoading == false {
+                ContentUnavailableView(
+                    "No Interiors",
+                    systemImage: "house"
+                )
+            } else {
+                ScrollView(showsIndicators: false) {
+                    LazyVStack(spacing: 8) {
+                        ForEach(viewModel.cards) { card in
+                            ToolCell(
+                                card: card,
+                                onRightImageTap: {
+                                    print("Right image tapped")
+                                },
+                                onButtonTap: {
+                                    print("Button tapped")
+                                }
+                            )
+                        }
+                    }
+                }
+                .contentMargins(.bottom, 96)
+            }
         }
     }
 }
 
 #Preview {
     ToolsView()
+        .environment(ToolsViewModel())
 }

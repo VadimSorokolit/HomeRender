@@ -15,10 +15,17 @@ class ToolsViewModel {
     // MARK: - Properties. Public
     
     private(set) var cards: [ToolCard] = []
+    private(set) var isLoading: Bool = false
     
     // MARK: - Methods. Public
     
     func loadCards() {
+        self.isLoading = true
+        
+        defer {
+            self.isLoading = false
+        }
+        
         self.cards = JSONLoader.load("Interiors")
     }
 }

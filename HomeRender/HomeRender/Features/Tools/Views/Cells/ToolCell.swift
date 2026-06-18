@@ -16,26 +16,41 @@ struct ToolCell: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            HStack(spacing: 0) {
-                Image(card.beforeImage)
-                    .resizable()
-                    .scaledToFill()
-                
-                Rectangle()
-                    .fill(.white)
-                    .frame(width: 2)
-                
-                Button(action: {
-                    onRightImageTap()
-                }, label: {
-                    Image(card.afterImage)
+            GeometryReader { proxy in
+                HStack(spacing: 0) {
+                    Image(card.beforeImage)
                         .resizable()
                         .scaledToFill()
-                })
+                        .frame(
+                            width: proxy.size.width / 2 - 1,
+                            height: imageHeight
+                        )
+                        .clipped()
+
+                    Rectangle()
+                        .fill(.white)
+                        .frame(width: 2)
+
+                    Button {
+                        onRightImageTap()
+                    } label: {
+                        Image(card.afterImage)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(
+                                width: proxy.size.width / 2 - 1,
+                                height: imageHeight
+                            )
+                            .clipped()
+                    }
+                    .buttonStyle(.plain)
+                }
+
             }
+
             .frame(height: imageHeight)
+
             .clipShape(RoundedRectangle(cornerRadius: 16))
-            
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(card.title)

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5B3DFCE62FE41CFE00447169 /* Interiors.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B6FBB302FE4059400B0F3E1 /* Interiors.json */; };
+		5B3DFCE92FE420C400447169 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3DFCE82FE420C400447169 /* SpinnerView.swift */; };
 		5B6FBB3C2FE40B5B00B0F3E1 /* ToolsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FBB3B2FE40B5A00B0F3E1 /* ToolsViewModel.swift */; };
 		5B6FBB3F2FE410A100B0F3E1 /* View+frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FBB3E2FE410A000B0F3E1 /* View+frame.swift */; };
 		5B6FBB412FE4117A00B0F3E1 /* ToolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FBB402FE4117900B0F3E1 /* ToolCell.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B3DFCE82FE420C400447169 /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 		5B6FBB302FE4059400B0F3E1 /* Interiors.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Interiors.json; sourceTree = "<group>"; };
 		5B6FBB3B2FE40B5A00B0F3E1 /* ToolsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsViewModel.swift; sourceTree = "<group>"; };
 		5B6FBB3E2FE410A000B0F3E1 /* View+frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+frame.swift"; sourceTree = "<group>"; };
@@ -56,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B3DFCE72FE4209A00447169 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				5B3DFCE82FE420C400447169 /* SpinnerView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		5B6FBB3A2FE40B4500B0F3E1 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +155,7 @@
 		5B7E1DCF2FE3D14100561D67 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				5B3DFCE72FE4209A00447169 /* UI */,
 				5B7E1DD02FE3D15100561D67 /* Extensions */,
 			);
 			path = Common;
@@ -273,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B7E1DDA2FE3D27800561D67 /* JSONLoader.swift in Sources */,
+				5B3DFCE92FE420C400447169 /* SpinnerView.swift in Sources */,
 				5B7E1DC92FE3D08C00561D67 /* ToolsView.swift in Sources */,
 				5B6FBB482FE418F600B0F3E1 /* GalleryView.swift in Sources */,
 				5B7E1DE82FE3F1C900561D67 /* ToolCard.swift in Sources */,

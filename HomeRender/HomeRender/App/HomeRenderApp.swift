@@ -14,6 +14,11 @@ struct HomeRenderApp: App {
     var body: some Scene {
         WindowGroup {
             ToolsView()
+                .overlay {
+                    if viewModel.isLoading {
+                        SpinnerView()
+                    }
+                }
                 .environment(viewModel)
         }
     }
