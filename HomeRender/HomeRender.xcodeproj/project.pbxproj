@@ -10,6 +10,10 @@
 		5B6FBB312FE4059700B0F3E1 /* Interiors.json in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FBB302FE4059400B0F3E1 /* Interiors.json */; };
 		5B6FBB3C2FE40B5B00B0F3E1 /* ToolsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FBB3B2FE40B5A00B0F3E1 /* ToolsViewModel.swift */; };
 		5B6FBB3F2FE410A100B0F3E1 /* View+frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FBB3E2FE410A000B0F3E1 /* View+frame.swift */; };
+		5B6FBB412FE4117A00B0F3E1 /* ToolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FBB402FE4117900B0F3E1 /* ToolCell.swift */; };
+		5B6FBB462FE418AE00B0F3E1 /* SketchToRenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FBB452FE418AC00B0F3E1 /* SketchToRenderView.swift */; };
+		5B6FBB482FE418F600B0F3E1 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FBB472FE418F500B0F3E1 /* GalleryView.swift */; };
+		5B6FBB4A2FE4194800B0F3E1 /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FBB492FE4194700B0F3E1 /* DiscoverView.swift */; };
 		5B7E1DC92FE3D08C00561D67 /* ToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E1DC62FE3D08C00561D67 /* ToolsView.swift */; };
 		5B7E1DCA2FE3D08C00561D67 /* HomeRenderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E1DC72FE3D08C00561D67 /* HomeRenderApp.swift */; };
 		5B7E1DCB2FE3D08C00561D67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B7E1DC52FE3D08C00561D67 /* Assets.xcassets */; };
@@ -25,6 +29,10 @@
 		5B6FBB302FE4059400B0F3E1 /* Interiors.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Interiors.json; sourceTree = "<group>"; };
 		5B6FBB3B2FE40B5A00B0F3E1 /* ToolsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsViewModel.swift; sourceTree = "<group>"; };
 		5B6FBB3E2FE410A000B0F3E1 /* View+frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+frame.swift"; sourceTree = "<group>"; };
+		5B6FBB402FE4117900B0F3E1 /* ToolCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolCell.swift; sourceTree = "<group>"; };
+		5B6FBB452FE418AC00B0F3E1 /* SketchToRenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SketchToRenderView.swift; sourceTree = "<group>"; };
+		5B6FBB472FE418F500B0F3E1 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		5B6FBB492FE4194700B0F3E1 /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
 		5B7E1DB72FE3D04700561D67 /* HomeRender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeRender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B7E1DC52FE3D08C00561D67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B7E1DC62FE3D08C00561D67 /* ToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsView.swift; sourceTree = "<group>"; };
@@ -59,8 +67,25 @@
 		5B6FBB3D2FE40FE800B0F3E1 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				5B6FBB402FE4117900B0F3E1 /* ToolCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		5B6FBB422FE4185800B0F3E1 /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				5B6FBB472FE418F500B0F3E1 /* GalleryView.swift */,
+			);
+			path = Gallery;
+			sourceTree = "<group>";
+		};
+		5B6FBB442FE4188A00B0F3E1 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				5B6FBB492FE4194700B0F3E1 /* DiscoverView.swift */,
+			);
+			path = Discover;
 			sourceTree = "<group>";
 		};
 		5B7E1DAE2FE3D04700561D67 = {
@@ -110,6 +135,8 @@
 		5B7E1DCE2FE3D0F500561D67 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				5B6FBB442FE4188A00B0F3E1 /* Discover */,
+				5B6FBB422FE4185800B0F3E1 /* Gallery */,
 				5B7E1DE52FE3F1B900561D67 /* Tools */,
 			);
 			path = Features;
@@ -167,6 +194,7 @@
 			children = (
 				5B6FBB3D2FE40FE800B0F3E1 /* Cells */,
 				5B7E1DC62FE3D08C00561D67 /* ToolsView.swift */,
+				5B6FBB452FE418AC00B0F3E1 /* SketchToRenderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -245,13 +273,17 @@
 			files = (
 				5B7E1DDA2FE3D27800561D67 /* JSONLoader.swift in Sources */,
 				5B7E1DC92FE3D08C00561D67 /* ToolsView.swift in Sources */,
+				5B6FBB482FE418F600B0F3E1 /* GalleryView.swift in Sources */,
 				5B7E1DE82FE3F1C900561D67 /* ToolCard.swift in Sources */,
 				5B6FBB312FE4059700B0F3E1 /* Interiors.json in Sources */,
 				5B7E1DD42FE3D1B300561D67 /* Color+hex.swift in Sources */,
+				5B6FBB4A2FE4194800B0F3E1 /* DiscoverView.swift in Sources */,
 				5B7E1DDD2FE3D2AE00561D67 /* ShapeStyle+gradient.swift in Sources */,
+				5B6FBB412FE4117A00B0F3E1 /* ToolCell.swift in Sources */,
 				5B6FBB3C2FE40B5B00B0F3E1 /* ToolsViewModel.swift in Sources */,
 				5B6FBB3F2FE410A100B0F3E1 /* View+frame.swift in Sources */,
 				5B7E1DDF2FE3D2B900561D67 /* ShapeStyle+solid.swift in Sources */,
+				5B6FBB462FE418AE00B0F3E1 /* SketchToRenderView.swift in Sources */,
 				5B7E1DD22FE3D19A00561D67 /* View+cornerRadius.swift in Sources */,
 				5B7E1DCA2FE3D08C00561D67 /* HomeRenderApp.swift in Sources */,
 			);
@@ -391,11 +423,12 @@
 				DEVELOPMENT_TEAM = D28SS25G7Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = HomeRender;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -423,11 +456,12 @@
 				DEVELOPMENT_TEAM = D28SS25G7Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = HomeRender;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
