@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ToolCell: Identifiable {
+struct ToolCard: Decodable, Identifiable {
     let id: Int
     let title: String
     let subtitle: String

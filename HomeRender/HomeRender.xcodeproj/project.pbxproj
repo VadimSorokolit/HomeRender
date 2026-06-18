@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5B6FBB312FE4059700B0F3E1 /* Interiors.json in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FBB302FE4059400B0F3E1 /* Interiors.json */; };
+		5B6FBB3C2FE40B5B00B0F3E1 /* ToolsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FBB3B2FE40B5A00B0F3E1 /* ToolsViewModel.swift */; };
+		5B6FBB3F2FE410A100B0F3E1 /* View+frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FBB3E2FE410A000B0F3E1 /* View+frame.swift */; };
 		5B7E1DC92FE3D08C00561D67 /* ToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E1DC62FE3D08C00561D67 /* ToolsView.swift */; };
 		5B7E1DCA2FE3D08C00561D67 /* HomeRenderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E1DC72FE3D08C00561D67 /* HomeRenderApp.swift */; };
 		5B7E1DCB2FE3D08C00561D67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B7E1DC52FE3D08C00561D67 /* Assets.xcassets */; };
@@ -16,11 +18,13 @@
 		5B7E1DDA2FE3D27800561D67 /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E1DD92FE3D27800561D67 /* JSONLoader.swift */; };
 		5B7E1DDD2FE3D2AE00561D67 /* ShapeStyle+gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E1DDC2FE3D2AE00561D67 /* ShapeStyle+gradient.swift */; };
 		5B7E1DDF2FE3D2B900561D67 /* ShapeStyle+solid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E1DDE2FE3D2B900561D67 /* ShapeStyle+solid.swift */; };
-		5B7E1DE82FE3F1C900561D67 /* ToolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E1DE72FE3F1C800561D67 /* ToolCell.swift */; };
+		5B7E1DE82FE3F1C900561D67 /* ToolCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E1DE72FE3F1C800561D67 /* ToolCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5B6FBB302FE4059400B0F3E1 /* Interiors.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Interiors.json; sourceTree = "<group>"; };
+		5B6FBB3B2FE40B5A00B0F3E1 /* ToolsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsViewModel.swift; sourceTree = "<group>"; };
+		5B6FBB3E2FE410A000B0F3E1 /* View+frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+frame.swift"; sourceTree = "<group>"; };
 		5B7E1DB72FE3D04700561D67 /* HomeRender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeRender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B7E1DC52FE3D08C00561D67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B7E1DC62FE3D08C00561D67 /* ToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsView.swift; sourceTree = "<group>"; };
@@ -30,7 +34,7 @@
 		5B7E1DD92FE3D27800561D67 /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
 		5B7E1DDC2FE3D2AE00561D67 /* ShapeStyle+gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShapeStyle+gradient.swift"; sourceTree = "<group>"; };
 		5B7E1DDE2FE3D2B900561D67 /* ShapeStyle+solid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShapeStyle+solid.swift"; sourceTree = "<group>"; };
-		5B7E1DE72FE3F1C800561D67 /* ToolCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolCell.swift; sourceTree = "<group>"; };
+		5B7E1DE72FE3F1C800561D67 /* ToolCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +48,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B6FBB3A2FE40B4500B0F3E1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				5B6FBB3B2FE40B5A00B0F3E1 /* ToolsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		5B6FBB3D2FE40FE800B0F3E1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		5B7E1DAE2FE3D04700561D67 = {
 			isa = PBXGroup;
 			children = (
@@ -107,10 +126,11 @@
 		5B7E1DD02FE3D15100561D67 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				5B7E1DD32FE3D1B300561D67 /* Color+hex.swift */,
 				5B7E1DDC2FE3D2AE00561D67 /* ShapeStyle+gradient.swift */,
 				5B7E1DDE2FE3D2B900561D67 /* ShapeStyle+solid.swift */,
-				5B7E1DD32FE3D1B300561D67 /* Color+hex.swift */,
 				5B7E1DD12FE3D19A00561D67 /* View+cornerRadius.swift */,
+				5B6FBB3E2FE410A000B0F3E1 /* View+frame.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -129,6 +149,7 @@
 			children = (
 				5B7E1DE62FE3F1C100561D67 /* Models */,
 				5B7E1DE92FE3F1EA00561D67 /* Views */,
+				5B6FBB3A2FE40B4500B0F3E1 /* ViewModels */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -136,7 +157,7 @@
 		5B7E1DE62FE3F1C100561D67 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5B7E1DE72FE3F1C800561D67 /* ToolCell.swift */,
+				5B7E1DE72FE3F1C800561D67 /* ToolCard.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -144,6 +165,7 @@
 		5B7E1DE92FE3F1EA00561D67 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5B6FBB3D2FE40FE800B0F3E1 /* Cells */,
 				5B7E1DC62FE3D08C00561D67 /* ToolsView.swift */,
 			);
 			path = Views;
@@ -223,10 +245,12 @@
 			files = (
 				5B7E1DDA2FE3D27800561D67 /* JSONLoader.swift in Sources */,
 				5B7E1DC92FE3D08C00561D67 /* ToolsView.swift in Sources */,
-				5B7E1DE82FE3F1C900561D67 /* ToolCell.swift in Sources */,
+				5B7E1DE82FE3F1C900561D67 /* ToolCard.swift in Sources */,
 				5B6FBB312FE4059700B0F3E1 /* Interiors.json in Sources */,
 				5B7E1DD42FE3D1B300561D67 /* Color+hex.swift in Sources */,
 				5B7E1DDD2FE3D2AE00561D67 /* ShapeStyle+gradient.swift in Sources */,
+				5B6FBB3C2FE40B5B00B0F3E1 /* ToolsViewModel.swift in Sources */,
+				5B6FBB3F2FE410A100B0F3E1 /* View+frame.swift in Sources */,
 				5B7E1DDF2FE3D2B900561D67 /* ShapeStyle+solid.swift in Sources */,
 				5B7E1DD22FE3D19A00561D67 /* View+cornerRadius.swift in Sources */,
 				5B7E1DCA2FE3D08C00561D67 /* HomeRenderApp.swift in Sources */,

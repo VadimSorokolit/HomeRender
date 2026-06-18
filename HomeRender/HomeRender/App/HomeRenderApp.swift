@@ -9,10 +9,12 @@ import SwiftUI
 
 @main
 struct HomeRenderApp: App {
+    @State private var viewModel = ToolsViewModel()
 
     var body: some Scene {
         WindowGroup {
             ToolsView()
+                .environment(viewModel)
         }
     }
 

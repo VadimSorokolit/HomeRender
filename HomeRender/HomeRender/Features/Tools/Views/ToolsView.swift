@@ -58,10 +58,12 @@ struct ToolsView: View {
                 }, label: {
                     Rectangle()
                         .fill(.clear)
-                        .frame(width: 44, height: 44)
+                        .frame(size: 44)
                         .overlay {
-                            Image(systemName: "person.crop.circle")
-                                .font(.system(size: 24))
+                            Image(.user)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(size: 24)
                                 .foregroundStyle(Color(hex: 0x8C8C8F))
                         }
                 })
