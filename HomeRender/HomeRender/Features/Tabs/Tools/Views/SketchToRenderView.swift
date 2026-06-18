@@ -64,21 +64,51 @@ struct SketchToRenderView: View {
                     if let card {
                         GeometryReader { proxy in
                             HStack(spacing: 0) {
-                                Image(card.beforeImage)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: proxy.size.width / 2 - 2, height: imageHeight)
-                                    .clipped()
+                                ZStack(alignment: .topLeading) {
+                                    Image(card.beforeImage)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: proxy.size.width / 2 - 2,
+                                               height: imageHeight
+                                        )
+                                        .clipped()
+                                    
+                                    RoundedRectangle(cornerRadius: 96)
+                                        .fill(.white.opacity(0.8))
+                                        .frame(width: 56, height: 26)
+                                        .background(.ultraThinMaterial)
+                                        .overlay {
+                                            Text("Before")
+                                                .foregroundStyle(.black)
+                                                .font(.system(size: 14, weight: .semibold))
+                                        }
+                                        .padding(.top, 22)
+                                        .padding(.leading, 22)
+                                }
                                 
                                 Rectangle()
                                     .fill(.white)
                                     .frame(width: 4)
                                 
-                                Image(card.afterImage)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: proxy.size.width / 2 - 2, height: imageHeight)
-                                    .clipped()
+                                ZStack(alignment: .topTrailing) {
+                                    Image(card.afterImage)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: proxy.size.width / 2 - 2, height: imageHeight)
+                                        .clipped()
+                                    
+                                    RoundedRectangle(cornerRadius: 96)
+                                        .fill(.white.opacity(0.8))
+                                        .frame(width: 56, height: 26)
+                                        .background(.ultraThinMaterial)
+                                        .overlay {
+                                            Text("After")
+                                                .foregroundStyle(.black)
+                                                .font(.system(size: 14, weight: .semibold))
+                                        }
+                                        .padding(.top, 22)
+                                        .padding(.trailing, 22)
+                                }
                             }
                             .clipShape(RoundedRectangle(cornerRadius: 24))
                         }
