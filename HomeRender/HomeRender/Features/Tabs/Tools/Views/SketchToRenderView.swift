@@ -83,11 +83,8 @@ struct SketchToRenderView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 24))
                         }
                         .frame(height: imageHeight)
+                        .contentMargins(.bottom, 98)
                     }
-                    
-                    Rectangle()
-                        .fill(GlobalConstants.bgColor)
-                        .frame(height: 98)
                 }
             }
         }
@@ -178,8 +175,6 @@ struct SketchToRenderView: View {
                 }
                 .padding()
             }
-            .frame(height: 152)
-            .padding(.vertical)
         }
     }
     
