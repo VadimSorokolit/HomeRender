@@ -9,18 +9,22 @@ import SwiftUI
 
 struct ToolsView: View {
     
+    private enum Constants {
+        static let bgColor = Color(hex: 0xF3F2F1)
+    }
+    
     var body: some View {
-        ZStack(alignment: .top) {
-            Color(hex: 0xf3f2f1)
+        ZStack {
+            Constants.bgColor
                 .ignoresSafeArea()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-            
+                
+        }
+        .safeAreaInset(edge: .top) {
             VStack(spacing: 0) {
                 HeaderView()
                 
                 ContentView()
             }
-            .padding(.horizontal)
         }
     }
     
@@ -34,10 +38,10 @@ struct ToolsView: View {
         var body: some View {
             HStack {
                 Button(action: {
-                    
+                    print("GetProButton did tap")
                 }, label: {
                     RoundedRectangle(cornerRadius: cornerRadius)
-                        .foregroundStyle(.color1)
+                        .foregroundStyle(.getProButtonColor)
                         .frame(width: width, height: height)
                         .overlay {
                             Text(text)
@@ -49,12 +53,24 @@ struct ToolsView: View {
                 
                 Spacer()
                 
-                Image(systemName: "person.crop.circle")
-                    .font(.system(size: 24))
-                    .foregroundStyle(Color(hex: 0x8C8C8F))
+                Button(action: {
+                    print("UserButton did tap")
+                }, label: {
+                    Rectangle()
+                        .fill(.clear)
+                        .frame(width: 44, height: 44)
+                        .overlay {
+                            Image(systemName: "person.crop.circle")
+                                .font(.system(size: 24))
+                                .foregroundStyle(Color(hex: 0x8C8C8F))
+                        }
+                })
                 
             }
+            .padding(.horizontal)
             .padding(.vertical, 6)
+            .frame(maxWidth: .infinity)
+            .background(Constants.bgColor)
         }
     }
     
@@ -62,6 +78,8 @@ struct ToolsView: View {
         
         var body: some View {
             Text("Hello")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Constants.bgColor)
         }
     }
 }

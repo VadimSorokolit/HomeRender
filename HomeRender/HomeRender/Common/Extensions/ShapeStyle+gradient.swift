@@ -9,7 +9,7 @@ import SwiftUI
 
 extension ShapeStyle where Self == LinearGradient {
 
-    static var color1: LinearGradient {
+    static var getProButtonColor: LinearGradient {
         LinearGradient(
             gradient: Gradient(colors: [
                 Color(hex: 0xFE9448),

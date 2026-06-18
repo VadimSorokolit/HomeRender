@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1
+        "title": "Redesign"
+        "subtitle": "Refresh your space with a new interior look"
+        "beforeImage": "before1",
+        "afterImage": "after1"
+    },
+    {
+        "id": 2
+        "title": "Sketch to Render",
+        "subtitle": "Refresh your space with a new interior look",
+        "beforeImage": "before2",
+        "afterImage": "after2"
+    },
+    {
+        "id": 3
+        "title": "Design Transfer",
+        "subtitle": "Refresh your space with a new interior look",
+        "beforeImage": "before3",
+        "afterImage": "after3"
+    }
+]
