@@ -13,7 +13,7 @@ struct HomeRenderApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ToolsView()
+            RootTabsView()
                 .overlay {
                     if viewModel.isLoading {
                         SpinnerView()
