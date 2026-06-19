@@ -110,15 +110,11 @@ struct SketchToRenderView: View {
                                         y: 4
                                     )
                                     .overlay {
-                                        HStack(spacing: 0) {
-                                            Image(systemName: "chevron.left")
-                                                .font(.system(size: 20, weight: .regular))
-                                                .foregroundStyle(.black)
-                                            
-                                            Image(systemName: "chevron.right")
-                                                .font(.system(size: 20, weight: .regular))
-                                                .foregroundStyle(.black)
-                                        }
+                                        Image(.chevronUpChevronDown)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(size: 20)
+                                            .foregroundStyle(.black)
                                     }
                                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                                     .offset(x: dividerX - 22)
@@ -148,7 +144,6 @@ struct SketchToRenderView: View {
                 RoundedRectangle(cornerRadius: 96)
                     .fill(.white.opacity(0.8))
                     .frame(width: 56, height: 26)
-                    .background(.ultraThinMaterial)
                     .overlay {
                         Text(title)
                             .foregroundStyle(.black)
