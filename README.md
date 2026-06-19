@@ -7,4 +7,4 @@
 
 <br />
 <img src="https://github.com/user-attachments/assets/bc0f39c4-6f9c-46a1-a2d2-502886bc1b4e"  width = 48.8%>
-<img src="https://github.com/user-attachments/assets/b631c3be-e1e9-45c8-9408-e788c5d299a9"  width = 48.8%>
+<img src="https://github.com/user-attachments/assets/5edf07fc-4e02-4069-946b-10ab3a6e6001"  width = 48.8%>
