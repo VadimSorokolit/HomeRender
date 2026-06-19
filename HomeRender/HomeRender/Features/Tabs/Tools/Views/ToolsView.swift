@@ -5,11 +5,11 @@
 //  Created by Vadim Sorokolit on 18.06.2026.
 //
 
+import SwiftUI
+
 enum AppRoute: Hashable {
     case sketchToRender(ToolCard)
 }
-
-import SwiftUI
 
 struct ToolsView: View {
     @Environment(ToolsViewModel.self) private var viewModel
@@ -77,6 +77,7 @@ struct ToolsView: View {
                                 .frame(size: 24)
                                 .foregroundStyle(Color(hex: 0x8C8C8F))
                         }
+                        .offset(x: 5)
                 })
                 
             }
@@ -103,7 +104,7 @@ struct ToolsView: View {
                         ForEach(viewModel.cards) { card in
                             ToolCell(
                                 card: card,
-                                onRightImageTap: {
+                                onCellTap: {
                                     onNavigate(card)
                                 },
                                 onButtonTap: {
@@ -113,6 +114,7 @@ struct ToolsView: View {
                         }
                     }
                 }
+                .padding(.top, 12)
                 .contentMargins(.bottom, 96)
             }
         }

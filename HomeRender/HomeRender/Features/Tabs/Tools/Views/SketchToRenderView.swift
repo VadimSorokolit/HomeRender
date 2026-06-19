@@ -236,7 +236,7 @@ struct SketchToRenderView: View {
                                     
                                     Text("Regenerate")
                                         .foregroundStyle(.white)
-                                        .font(.system(size: 24, weight: .medium))
+                                        .font(.system(size: 16, weight: .medium))
                                 }
                             }
                     })

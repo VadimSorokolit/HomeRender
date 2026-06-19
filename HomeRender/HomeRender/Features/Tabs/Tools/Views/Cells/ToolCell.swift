@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ToolCell: View {
     let card: ToolCard
-    let onRightImageTap: () -> Void
+    let onCellTap: () -> Void
     let onButtonTap: () -> Void
     
     let imageHeight: CGFloat = 129
@@ -31,9 +31,6 @@ struct ToolCell: View {
                         .fill(.white)
                         .frame(width: 2)
 
-                    Button {
-                        onRightImageTap()
-                    } label: {
                         Image(card.afterImage)
                             .resizable()
                             .scaledToFill()
@@ -42,23 +39,29 @@ struct ToolCell: View {
                                 height: imageHeight
                             )
                             .clipped()
-                    }
-                    .buttonStyle(.plain)
                 }
-
             }
-
             .frame(height: imageHeight)
-
             .clipShape(RoundedRectangle(cornerRadius: 16))
-            HStack {
+            
+            HStack(alignment: .bottom) {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(card.title)
-                        .font(.system(size: 16, weight: .semibold))
+                    Rectangle()
+                        .fill(.clear)
+                        .frame(width: 230, height: 24)
+                        .overlay(alignment: .leading) {
+                            Text(card.title)
+                                .font(.system(size: 16, weight: .semibold))
+                        }
                     
-                    Text(card.subtitle)
-                        .font(.system(size: 14, weight: .regular))
-                        .foregroundStyle(Color(hex: 0x8C8C8F))
+                    Rectangle()
+                        .fill(.clear)
+                        .frame(width: 230, height: 44)
+                        .overlay(alignment: .leading) {
+                            Text(card.subtitle)
+                                .font(.system(size: 14, weight: .regular))
+                                .foregroundStyle(Color(hex: 0x8C8C8F))
+                        }
                 }
                 .frame(width: 230, alignment: .leading)
                 
@@ -84,6 +87,10 @@ struct ToolCell: View {
                 })
             }
         }
+        .onTapGesture {
+            onCellTap()
+
+        }
         .padding(12)
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -107,7 +114,7 @@ struct ToolCell: View {
                 beforeImage: "before1",
                 afterImage: "after1"
             ),
-            onRightImageTap: {
+            onCellTap: {
                 print("After image tapped")
             },
             onButtonTap: {
