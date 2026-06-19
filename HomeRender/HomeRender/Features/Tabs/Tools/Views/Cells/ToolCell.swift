@@ -26,7 +26,7 @@ struct ToolCell: View {
                             width: proxy.size.width / 2 - 1,
                             height: imageHeight
                         )
-                        .scaleEffect(2.0)
+                        .scaleEffect(1.9)
                         .clipped()
 
                     Rectangle()
@@ -35,13 +35,13 @@ struct ToolCell: View {
 
                         Image(card.afterImage)
                             .resizable()
-                            .scaledToFill()
+                            .aspectRatio(contentMode: .fill)
                             .offset(x: -40)
                             .frame(
                                 width: proxy.size.width / 2 - 1,
                                 height: imageHeight
                             )
-                            .scaleEffect(2.0)
+                            .scaleEffect(1.8)
                             .clipped()
                 }
             }
