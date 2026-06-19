@@ -36,7 +36,7 @@ enum HomeTab: Hashable, Identifiable, CaseIterable {
             case .tools:
                 "tools"
             case .gallery:
-                "gallery"
+                "vector_over"
             case .discover:
                 "discover"
         }
@@ -140,12 +140,28 @@ private struct TabItemView: View {
             }
         } label: {
             VStack(spacing: 3) {
-                Image(tab.icon)
-                    .renderingMode(.template)
-                    .resizable()
-                    .scaledToFit()
+                if tab == .gallery {
+                    ZStack {
+                        Image("vector_under")
+                            .resizable()
+                            .scaledToFit()
+
+                        Image("vector_over")
+                            .resizable()
+                            .scaledToFit()
+                            .offset(x: 4.65, y: 5.07)
+                    }
                     .frame(width: iconSize, height: iconSize)
                     .foregroundStyle(isSelected ? activeColor : inactiveColor)
+
+                } else {
+                    Image(tab.icon)
+                        .renderingMode(.template)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: iconSize, height: iconSize)
+                        .foregroundStyle(isSelected ? activeColor : inactiveColor)
+                }
                 
                 Text(tab.title)
                     .font(.system(size: 10, weight: .medium))
