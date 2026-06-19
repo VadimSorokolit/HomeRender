@@ -232,7 +232,7 @@ struct SketchToRenderView: View {
                                         .resizable()
                                         .scaledToFit()
                                         .foregroundStyle(.white)
-                                        .frame(size: 16)
+                                        .frame(size: 24)
                                     
                                     Text("Regenerate")
                                         .foregroundStyle(.white)
