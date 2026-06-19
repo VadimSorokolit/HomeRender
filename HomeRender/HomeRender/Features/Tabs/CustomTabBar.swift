@@ -14,12 +14,6 @@ enum HomeTab: Hashable, Identifiable, CaseIterable {
     
     var id: Self { self }
     
-    static let tabs: [HomeTab] = [
-        .tools,
-        .gallery,
-        .discover
-    ]
-    
     var title: String {
         switch self {
             case .tools:
@@ -90,7 +84,7 @@ struct RootTabsView: View {
             .frame(height: 96)
             
             HStack(spacing: 0) {
-                ForEach(HomeTab.tabs) { tab in
+                ForEach(HomeTab.allCases) { tab in
                     TabItemView(
                         tab: tab,
                         isSelected: activeTab == tab,
@@ -151,9 +145,10 @@ private struct TabItemView: View {
                             .scaledToFit()
                             .offset(x: 4.65, y: 5.07)
                     }
-                    .frame(width: iconSize, height: iconSize)
+                    .frame(size: iconSize * 0.8)
                     .foregroundStyle(isSelected ? activeColor : inactiveColor)
-
+                    .padding(.bottom, 4)
+                    
                 } else {
                     Image(tab.icon)
                         .renderingMode(.template)
@@ -180,7 +175,7 @@ private struct TabItemView: View {
             .ignoresSafeArea()
         
         HStack {
-            ForEach(HomeTab.tabs) { tab in
+            ForEach(HomeTab.allCases) { tab in
                 TabItemView(
                     tab: tab,
                     isSelected: tab == .tools,
