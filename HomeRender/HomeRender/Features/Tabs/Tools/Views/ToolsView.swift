@@ -77,7 +77,7 @@ struct ToolsView: View {
                                 .frame(size: 24)
                                 .foregroundStyle(Color(hex: 0x8C8C8F))
                         }
-                        .offset(x: 5)
+                        .offset(x: 8)
                 })
                 
             }
