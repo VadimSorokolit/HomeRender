@@ -136,7 +136,7 @@ private struct TabItemView: View {
             VStack(spacing: 3) {
                 if tab == .gallery {
                     ZStack {
-                        Image("vector_under")
+                        Image("vector_under_icon")
                             .resizable()
                             .scaledToFit()
 
