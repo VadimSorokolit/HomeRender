@@ -1,16 +1,22 @@
 import Foundation
 
-enum JSONLoader {
-	static func load<T: Decodable>(_ fileName: String) -> T {
-		guard let url = Bundle.main.url(forResource: fileName, withExtension: "json") else {
-			fatalError("Missing json file: \(fileName).json")
-		}
+enum JSONLoaderError: Error {
+    case failedToLoadFile(String)
+    case failedToDecodeFile(String, Error)
+}
 
-		do {
-			let data = try Data(contentsOf: url)
-			return try JSONDecoder().decode(T.self, from: data)
-		} catch {
-			fatalError("Failed to decode \(fileName).json: \(error)")
-		}
-	}
+enum JSONLoader {
+    static func load<T: Decodable>(_ fileName: String) throws -> T {
+        guard let url = Bundle.main.url(forResource: fileName, withExtension: "json") else {
+            throw JSONLoaderError.failedToLoadFile(fileName)
+        }
+
+        do {
+            let data = try Data(contentsOf: url)
+            
+            return try JSONDecoder().decode(T.self, from: data)
+        } catch {
+            throw JSONLoaderError.failedToDecodeFile(fileName, error)
+        }
+    }
 }

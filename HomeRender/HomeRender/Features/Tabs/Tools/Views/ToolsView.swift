@@ -34,8 +34,10 @@ struct ToolsView: View {
             SketchToRenderView(card: card)
         }
         .task {
-            guard viewModel.cards.isEmpty else { return }
-            viewModel.loadCards()
+            guard viewModel.cards.isEmpty else {
+                return
+            }
+            await viewModel.loadCards()
         }
     }
 
