@@ -1,5 +1,5 @@
 //
-//  ToolCell.swift
+//  ToolCard.swift
 //  HomeRender
 //
 //  Created by Vadim Sorokolit on 18.06.2026.

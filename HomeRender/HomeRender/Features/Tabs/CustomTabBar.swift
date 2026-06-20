@@ -1,6 +1,6 @@
 //
-//  GenreCell.swift
-//  TuneBox
+//  CustomTabBar.swift
+//  HomeRender
 //
 //  Created by Vadim Sorokolit on 05.06.2026.
 //
@@ -145,6 +145,7 @@ private struct TabItemView: View {
                             .scaledToFit()
                             .offset(x: 4.65, y: 5.07)
                     }
+                    .offset(x: -3)
                     .frame(size: iconSize * 0.8)
                     .foregroundStyle(isSelected ? activeColor : inactiveColor)
                     .padding(.bottom, 4)
